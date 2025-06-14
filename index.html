@@ -512,6 +512,512 @@
             padding: 24px 0;
             border-top: 1px solid rgba(255,255,255,0.1);
             text-align: center;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolKit Pro - Your Ultimate Online Tools Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-light: #e0e7ff;
+            --secondary: #3f37c9;
+            --accent: #f72585;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --error: #ef233c;
+            --dark: #212529;
+            --gray-dark: #495057;
+            --gray: #adb5bd;
+            --gray-light: #e9ecef;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --rounded-sm: 4px;
+            --rounded-md: 8px;
+            --rounded-lg: 16px;
+            --rounded-full: 9999px;
+            --transition: all 0.2s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* Tools Section */
+        .tools-section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            color: var(--gray-dark);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .tool-card {
+            background-color: var(--white);
+            border-radius: var(--rounded-lg);
+            box-shadow: var(--shadow-sm);
+            padding: 30px;
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid var(--gray-light);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+
+        .tool-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary-light);
+            border-radius: var(--rounded-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 30px;
+            transition: var(--transition);
+        }
+
+        .tool-card:hover .tool-icon {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .tool-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .tool-desc {
+            color: var(--gray-dark);
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .tool-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: var(--rounded-md);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .tool-link:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* Categories Section */
+        .categories-section {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background-color: var(--light);
+            border-radius: var(--rounded-md);
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+        }
+
+        .category-card:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .category-card:hover .category-title,
+        .category-card:hover .category-count {
+            color: var(--white);
+        }
+
+        .category-icon {
+            font-size: 30px;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .category-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .category-count {
+            color: var(--gray-dark);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .features-content {
+            max-width: 600px;
+        }
+
+        .features-image img {
+            width: 100%;
+            border-radius: var(--rounded-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .features-list {
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-light);
+            border-radius: var(--rounded-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .feature-text h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .feature-text p {
+            color: var(--gray-dark);
+            font-size: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col:first-child {
+            grid-column: 1 / -1;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .footer-logo-icon {
+            color: var(--accent);
+        }
+
+        .footer-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
+            max-width: 400px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: 12px;
+        }
+
+        .footer-link a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-link a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            padding: 25px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
             color: var(--gray);
             font-size: 14px;
         }
@@ -521,14 +1027,13 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             padding: 12px 24px;
             border-radius: var(--rounded-md);
             font-size: 16px;
             font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
-            border: none;
             text-decoration: none;
         }
 
@@ -539,88 +1044,92 @@
 
         .btn-primary:hover {
             background-color: var(--gray-light);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-md);
         }
 
         .btn-secondary {
             background-color: transparent;
             color: var(--white);
-            border: 1px solid var(--white);
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
         .btn-secondary:hover {
             background-color: rgba(255,255,255,0.1);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-sm);
         }
 
-        .btn-accent {
-            background-color: var(--white);
-            color: var(--accent);
-        }
-
-        .btn-accent:hover {
-            background-color: var(--gray-light);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .hero h1 {
-                font-size: 36px;
+                font-size: 40px;
             }
-
+            
             .section-header h2 {
-                font-size: 28px;
+                font-size: 32px;
             }
+            
+            .features-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-content {
+                order: 2;
+            }
+            
+            .features-image {
+                order: 1;
+            }
+        }
 
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            
             .mobile-menu-btn {
                 display: block;
             }
-
-            nav {
-                position: fixed;
-                top: 72px;
-                left: 0;
-                width: 100%;
-                background-color: var(--white);
-                box-shadow: var(--shadow-md);
-                padding: 20px;
-                transform: translateY(-150%);
-                opacity: 0;
-                transition: var(--transition);
-                z-index: 99;
+            
+            .hero {
+                padding: 80px 0;
             }
-
-            nav.active {
-                transform: translateY(0);
-                opacity: 1;
+            
+            .hero h1 {
+                font-size: 36px;
             }
-
-            nav ul {
-                flex-direction: column;
-                gap: 16px;
-            }
-
+            
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .footer-col:first-child {
+                grid-column: auto;
+            }
         }
 
-        @media (max-width: 480px) {
-            .hero {
-                padding: 80px 0;
-            }
-
+        @media (max-width: 576px) {
             .hero h1 {
+                font-size: 32px;
+            }
+            
+            .section-header h2 {
                 font-size: 28px;
             }
-
-            .cta h2 {
+            
+            .cta-content h2 {
                 font-size: 28px;
+            }
+            
+            .tool-card {
+                padding: 20px;
             }
         }
     </style>
@@ -629,8 +1138,8 @@
     <header>
         <div class="container header-container">
             <a href="#" class="logo">
-                <i class="fas fa-toolbox logo-icon"></i>
-                ToolKit Pro
+                <i class="fas fa-tools logo-icon"></i>
+                <span class="logo-text">Tool<span>Kit</span> Pro</span>
             </a>
             
             <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -640,9 +1149,10 @@
             <nav id="main-nav">
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#image-tools">Image Tools</a></li>
-                    <li><a href="#pdf-tools">PDF Tools</a></li>
-                    <li><a href="#features">Features</a></li>
+                    <li><a href="#">Image Tools</a></li>
+                    <li><a href="#">PDF Tools</a></li>
+                    <li><a href="#">All Tools</a></li>
+                    <li><a href="#">Pricing</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
@@ -651,60 +1161,314 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Your All-in-One Online Toolkit</h1>
-            <p>Free, powerful tools for images and PDFs. Convert, compress, edit and optimize your files without installing any software.</p>
+            <h1>Your Ultimate Online Tools Collection</h1>
+            <p>Powerful, easy-to-use image and PDF tools to optimize your workflow. No installation required - works right in your browser!</p>
             <div class="hero-buttons">
-                <a href="#image-tools" class="btn btn-primary">
-                    <i class="fas fa-image"></i> Image Tools
+                <a href="#tools" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Explore Tools
                 </a>
-                <a href="#pdf-tools" class="btn btn-secondary">
-                    <i class="fas fa-file-pdf"></i> PDF Tools
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-play-circle"></i> Watch Demo
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="tool-categories" id="image-tools">
+    <section class="tools-section" id="tools">
         <div class="container">
             <div class="section-header">
-                <h2>Image Tools</h2>
-                <p>Powerful tools to edit, convert and optimize your images for web and social media</p>
+                <h2>Popular Tools</h2>
+                <p>Discover our most frequently used tools to enhance your images and PDFs</p>
             </div>
             
-            <div class="category-grid">
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-compress-arrows-alt"></i>
-                    </div>
+            <div class="tools-grid">
+                <!-- Image Tools -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-compress-alt"></i>
                     <h3 class="category-title">Compression</h3>
-            <p class="category-desc">Reduce file size without losing quality</p>
-            <ul class="tools-list">
-            <li><a href="#" class="/Img-compression.html">Image Compressor</a></li>
-            <li><a href="#" class="/Img-compression.html">Bulk Image Compressor</a></li>
-            <li><a href="#" class="/Img-compression.html">PNG Optimizer</a></li>
-            <li><a href="#" class="/Img-compression.html">JPEG Optimizer</a></li>
-             <li><a href="#" class="/Img-compression.html">WebP Converter</a></li>
-               </ul>
+<p class="category-desc">Reduce file size without losing quality</p>
+<ul class="tools-list">
+    <li><a href="#" class="/Image-compresion.html">Image Compressor</a></li>
+    <li><a href="#" class="Image-compression.html">Bulk Image Compressor</a></li>
+    <li><a href="#" class="Image-compression.html">PNG Optimizer</a></li>
+    <li><a href="#" class="Image-compression.html">JPEG Optimizer</a></li>
+    <li><a href="#" class="Image-compression.html">WebP Converter</a></li>
+</ul>
 
-               </ul>
-
-                    </ul>
-                </div>
                 
-                <div class="category-card">
-                    <div class="category-icon">
+                <div class="tool-card">
+                    <div class="tool-icon">
                         <i class="fas fa-exchange-alt"></i>
                     </div>
-                    <h3 class="category-title">Conversion</h3>
-                    <p class="category-desc">Convert between different image formats</p>
-                    <ul class="tools-list">
-                        <li><a href="#">JPG to PNG</a></li>
-                        <li><a href="#">PNG to JPG</a></li>
-                        <li><a href="#">WebP Converter</a></li>
-                        <li><a href="#">HEIC to JPG</a></li>
-                        <li><a href="#">SVG Converter</a></li>
-                    </ul>
+                    <h3 class="tool-title">Image Converter</h3>
+                    <p class="tool-desc">Convert between JPG, PNG, WebP and more</p>
+                    <a href="#" class="tool-link">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-crop"></i>
+                    </div>
+                    <h3 class="tool-title">Image Cropper</h3>
+                    <p class="tool-desc">Crop images to any size or aspect ratio</p>
+                    <a href="#" class="tool-link">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- PDF Tools -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="tool-title">PDF Compressor</h3>
+                    <p class="tool-desc">Reduce PDF file size while preserving quality</p>
+                    <a href="#" class="tool-link">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <h3 class="tool-title">PDF to Word</h3>
+                    <p class="tool-desc">Convert PDF files to editable Word documents</p>
+                    <a href="#" class="tool-link">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-merge"></i>
+                    </div>
+                    <h3 class="tool-title">PDF Merger</h3>
+                    <p class="tool-desc">Combine multiple PDFs into a single file</p>
+                    <a href="#" class="tool-link">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tool Categories</h2>
+                <p>Browse our tools by category to find exactly what you need</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h4 class="category-title">Image Tools</h4>
+                    <div class="category-count">24 Tools</div>
                 </div>
                 
                 <div class="category-card">
-                    <div class="ca
+                    <div class="category-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h4 class="category-title">PDF Tools</h4>
+                    <div class="category-count">18 Tools</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h4 class="category-title">Security Tools</h4>
+                    <div class="category-count">12 Tools</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-text-height"></i>
+                    </div>
+                    <h4 class="category-title">Text Tools</h4>
+                    <div class="category-count">15 Tools</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h4 class="category-title">Video Tools</h4>
+                    <div class="category-count">8 Tools</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h4 class="category-title">Audio Tools</h4>
+                    <div class="category-count">6 Tools</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="features-container">
+                <div class="features-content">
+                    <div class="section-header" style="text-align: left; margin-bottom: 30px;">
+                        <h2>Why Choose Our Tools?</h2>
+                    </div>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Lightning Fast Processing</h3>
+                                <p>Our tools work directly in your browser for instant results without waiting for server processing.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>100% Secure</h3>
+                                <p>Your files never leave your computer. We process everything locally in your browser.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Premium Quality</h3>
+                                <p>Advanced algorithms ensure the best possible results without compromising quality.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="features-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Tools Dashboard">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Boost Your Productivity?</h2>
+                <p>Join thousands of satisfied users who save time with our powerful online tools every day.</p>
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-star"></i> Get Started Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-tools footer-logo-icon"></i>
+                        ToolKit Pro
+                    </a>
+                    <p class="footer-desc">Your ultimate collection of online tools for images, PDFs, and more. Work smarter, not harder.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Categories</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Image Tools</a></li>
+                        <li class="footer-link"><a href="#">PDF Tools</a></li>
+                        <li class="footer-link"><a href="#">Security Tools</a></li>
+                        <li class="footer-link"><a href="#">Text Tools</a></li>
+                        <li class="footer-link"><a href="#">Video Tools</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">About Us</a></li>
+                        <li class="footer-link"><a href="#">Blog</a></li>
+                        <li class="footer-link"><a href="#">Careers</a></li>
+                        <li class="footer-link"><a href="#">Press</a></li>
+                        <li class="footer-link"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Terms of Service</a></li>
+                        <li class="footer-link"><a href="#">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="#">Cookie Policy</a></li>
+                        <li class="footer-link"><a href="#">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> ToolKit Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
